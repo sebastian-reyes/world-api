@@ -1,15 +1,19 @@
-import { getConnection } from "../database/database";
+const continentModel = require("../../models").continent;
+const countrieModel = require("../../models").countrie;
 
 const getContinents = async (req, res) => {
-  try {
-    const connection = await getConnection();
-    const result = await connection.query("SELECT * FROM continents");
-    console.log(result);
-    res.json(result);
-  } catch (error) {
-    res.status(500);
-    res.send(error.message);
-  }
+  continentModel
+    .findAll({
+      order:[['id']],
+      include: [{ model: countrieModel }],
+    })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      res.status(500)
+      res.json({ error: error });
+    });
 };
 
 export const methods = {
