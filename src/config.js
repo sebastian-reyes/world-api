@@ -1,4 +1,4 @@
-const { config } = require("dotenv");
+import 'dotenv/config';
 
 config();
 
