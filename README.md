@@ -1,4 +1,4 @@
-# World API v1.0.0
+# World API
 RESTful API based on the world. Allows you to list continents, countries and capitals.
 
 ## Database Model
@@ -8,7 +8,7 @@ RESTful API based on the world. Allows you to list continents, countries and cap
 
 ## Functionalities
 - [x] list continents
-- [x] find continent by Id
+- [x] Find continent by Id
 
 ## Clone and use this project
 
@@ -16,7 +16,7 @@ RESTful API based on the world. Allows you to list continents, countries and cap
 Clone this repo and run `npm i` to install dependencies.
 
 ### Database connection
-Create config.json file based on example.config.json, the credentials are repeated in the 3 environments.
+Create **config.json** file based on **example.config.json**, the credentials are repeated in the 3 environments.<br/>
 Example (development environment)
 ```json
 "development": {
