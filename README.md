@@ -9,6 +9,8 @@ RESTful API based on the world. Allows you to list continents, countries and cap
 ## Functionalities
 - [x] list continents
 - [x] Find continent by Id
+- [x] list countries
+- [x] Find countrie by Id
 
 ## Clone and use this project
 
