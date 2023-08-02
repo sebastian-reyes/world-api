@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       countrie.belongsTo(models.continent, {
-        foreignKey: 'id',
+        foreignKey: 'continent_id',
         targetKey: 'id'
       })
     }

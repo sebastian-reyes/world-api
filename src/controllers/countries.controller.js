@@ -1,16 +1,17 @@
 const continentModel = require("../../models").continent;
 const countrieModel = require("../../models").countrie;
 
-const getContinents = async (req, res) => {
-  continentModel
+const getCountries = async (req, res) => {
+  countrieModel
     .findAll({
       order: [["id"]],
       include: [
         {
-          model: countrieModel,
-          attributes: { exclude: ["continent_id"] },
+          model: continentModel,
+          attributes: { exclude: ["countries"] },
         },
       ],
+      attributes: { exclude: ["continent_id"] },
     })
     .then((data) => {
       res.json(data);
@@ -21,22 +22,23 @@ const getContinents = async (req, res) => {
     });
 };
 
-const getContinent = async (req, res) => {
+const getCountrie = async (req, res) => {
   const { id } = req.params;
-  continentModel
+  countrieModel
     .findByPk(id, {
       include: [
         {
-          model: countrieModel,
-          attributes: { exclude: ["continent_id"] },
+          model: continentModel,
+          attributes: { exclude: ["countries"] },
         },
       ],
+      attributes: { exclude: ["continent_id"] },
     })
     .then((data) => {
       if (data == null) {
         res.status(400);
-        res.json({ message: "Not found in database." });
-      } else {
+        res.json({message: 'Not found in database.'})
+      }else{
         res.json(data);
       }
     })
@@ -47,6 +49,6 @@ const getContinent = async (req, res) => {
 };
 
 export const methods = {
-  getContinents,
-  getContinent,
+  getCountries,
+  getCountrie,
 };
