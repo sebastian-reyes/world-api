@@ -1,4 +1,7 @@
 'use strict';
+
+let urlBase = "http://localhost:3000/"
+
 const {
   Model
 } = require('sequelize');
@@ -23,7 +26,13 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     continent_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
+    name: DataTypes.STRING, 
+    url:{
+      type: DataTypes.VIRTUAL,
+      get(){
+        return `${urlBase}api/countries/${this.id}`;
+      }
+    }
   }, {
     sequelize,
     modelName: 'countrie',
